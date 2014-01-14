@@ -5,7 +5,8 @@ var sketchProc = function(processing) {
 
     // put functions here, just like kahn academy
     var exampleFunction = function() {
-	processing.rect(30, 20, 55, 55);
+	processing.background(240, 70, 70);
+	processing.ellipse(200, 200, 300, 300);
     };
 
     // this code is executed once when the program is started
@@ -15,10 +16,10 @@ var sketchProc = function(processing) {
 	processing.size(800, 600);
 
 	// some drawing commands; feel free to change these
-	processing.fill(255, 0, 0);
+	processing.fill(255, 255, 0);
 
 	// draw some text
-	processing.text("Hello, World!", exampleVar, exampleVar);
+	processing.text("This is a website! ", exampleVar, exampleVar);
 
 	// call a function (defined up above)
 	exampleFunction();
