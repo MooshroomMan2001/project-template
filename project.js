@@ -4,9 +4,8 @@ var sketchProc = function(processing) {
     var exampleVar = 10;
 
     // put functions here, just like kahn academy
-    var exampleFunction = function() {
-	processing.background(240, 70, 70);
-	processing.ellipse(200, 200, 300, 300);
+    var exampleFunction = function(){
+
     };
 
     // this code is executed once when the program is started
@@ -19,7 +18,6 @@ var sketchProc = function(processing) {
 	processing.fill(255, 255, 0);
 
 	// draw some text
-	processing.text("This is a website! ", exampleVar, exampleVar);
 
 	// call a function (defined up above)
 	exampleFunction();
@@ -27,8 +25,18 @@ var sketchProc = function(processing) {
 
     // override draw function, by default it will be called 60 times per second
     processing.draw = function() {
-
-    };
+	processing.background(200, 90 ,70);
+	processing.rect(mouseX, mouseY, 30, 30);
+	if(mouseX >= 750 && <= 0){
+	    processing.textSize(90, 80);
+	    processing.text("You died!", 300, 300);
+	}
+	if(mouseY >= 500){
+	    processing.textSize(90, 30);
+	    processing.text("You died!", 300, 300);
+	}
+	
+  };
 }
 
 
