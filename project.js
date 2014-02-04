@@ -1,4 +1,5 @@
 var sketchProc = function(processing) {
+    var img = processing.loadImage("Background.png");
 	
     // put variables here, just like kahn academy
     var exampleVar = 10;
@@ -25,9 +26,9 @@ var sketchProc = function(processing) {
 
     // override draw function, by default it will be called 60 times per second
     processing.draw = function() {
-	processing.background(200, 90 ,70);
+	processing.image(img, 0, 0);
 	processing.rect(mouseX, mouseY, 30, 30);
-	if(mouseX >= 750 && <= 0){
+	if(mouseX >= 750 && mouseX <= 0){
 	    processing.textSize(90, 80);
 	    processing.text("You died!", 300, 300);
 	}
@@ -36,10 +37,9 @@ var sketchProc = function(processing) {
 	    processing.text("You died!", 300, 300);
 	}
 	
-  };
+    };
+
 }
-
-
 // boilerplate code --you probably want to ignore this
 var canvas = document.getElementById("project-canvas");
 var p = new Processing(canvas, sketchProc);
