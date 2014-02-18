@@ -1,5 +1,6 @@
 var sketchProc = function(processing) {
     var img = processing.loadImage("Background.png");
+    var dog = processing.loadImage("Untitled.png");
 	
     // put variables anywhere
     var textY = 300
@@ -23,16 +24,16 @@ var sketchProc = function(processing) {
     // override draw function, by default it will be called 60 times per second
     processing.draw = function() {
 	processing.image(img, 0, 0);
-	processing.rect(mouseX, mouseY, 30, 30);
+	processing.image(dog, mouseX, mouseY);
 	if(mouseX >= 625 && mouseX <= 0){
 	    processing.textSize(90, 80);
 	    processing.fill(255, 0, 0);
-	    processing.text("You died!", textX, textY );
+	    processing.text("You died!", textX, textY);
 	}
 	if(mouseY >= 450){
 	    processing.textSize(90, 30);
 	    processing.text("You died!", textX, textY);
-	}
+        }
 	
     };
 
