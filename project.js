@@ -3,8 +3,10 @@ var sketchProc = function(processing) {
     var dog = processing.loadImage("Untitled.png");
 	
     // put variables anywhere
-    var textY = 300
-    var textX = 300
+    var textY = 300;
+    var textX = 300;
+    var barfX = 1;
+    var barfFired = false;
 
     // put functions here, just like kahn academy
 
@@ -20,7 +22,13 @@ var sketchProc = function(processing) {
 
 	// draw some text
     };
+    processing.mouseClicked = function (){
+	barfFired = true;
+	barfX = 1;
+	console.log("mousePressed");
+	
 
+    };
     // override draw function, by default it will be called 60 times per second
     processing.draw = function() {
 	processing.image(img, 0, 0);
@@ -34,6 +42,11 @@ var sketchProc = function(processing) {
 	    processing.textSize(90, 30);
 	    processing.text("You died!", textX, textY);
         }
+	if(barfFired){
+	    processing.fill(250, 0, 0);
+	    processing.rect(barfX, 150, 20, 20);
+	    barfX = barfX + 10;
+	}
 	
     };
 
