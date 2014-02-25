@@ -5,10 +5,8 @@ var sketchProc = function(processing) {
     // put variables anywhere
     var textY = 300;
     var textX = 300;
-    var barfX = 1;
+    var barfX = dog;
     var barfFired = false;
-
-    // put functions here, just like kahn academy
 
 
     // this code is executed once when the program is started
@@ -20,7 +18,7 @@ var sketchProc = function(processing) {
 	// some drawing commands; feel free to change these
 	processing.fill(255, 255, 0);
 
-	// draw some text
+	// Mouse clicked function
     };
     processing.mouseClicked = function (){
 	barfFired = true;
@@ -43,7 +41,7 @@ var sketchProc = function(processing) {
 	    processing.text("You died!", textX, textY);
         }
 	if(barfFired){
-	    processing.fill(250, 0, 0);
+	    processing.fill(166, 255, 0);
 	    processing.rect(barfX, 150, 20, 20);
 	    barfX = barfX + 10;
 	}
