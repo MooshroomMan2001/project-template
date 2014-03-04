@@ -1,11 +1,12 @@
 var sketchProc = function(processing) {
     var img = processing.loadImage("Background.png");
     var dog = processing.loadImage("Untitled.png");
+    var audio = new Audio("Barf.mp3");
 	
     // put variables anywhere
     var textY = 300;
     var textX = 300;
-    var barfX = dog;
+    var barfX = 1;
     var barfFired = false;
 
 
@@ -23,7 +24,7 @@ var sketchProc = function(processing) {
     processing.mouseClicked = function (){
 	barfFired = true;
 	barfX = 1;
-	console.log("mousePressed");
+	audio.play();
 	
 
     };
