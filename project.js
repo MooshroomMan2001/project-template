@@ -2,6 +2,15 @@ var sketchProc = function(processing) {
     var img = processing.loadImage("Background.png");
     var dog = processing.loadImage("Untitled.png");
     var audio = new Audio("Barf.mp3");
+    var music = new Audio("mixdown.wav");
+music.controls = true;
+music.loop = true;
+music.autoplay = true;
+document.body.appendChild(music);
+
+    
+
+
 	
     // put variables anywhere
     var textY = 300;
@@ -19,7 +28,7 @@ var sketchProc = function(processing) {
 	// some drawing commands; feel free to change these
 	processing.fill(255, 255, 0);
 
-	// Mouse clicked function
+	// mouse clicked function
     };
     processing.mouseClicked = function (){
 	barfFired = true;
@@ -28,6 +37,13 @@ var sketchProc = function(processing) {
 	
 
     };
+    // enemy function; will call :)
+    var enemies = function (){
+	var x = 625;
+	rect(x, 500, 30, 30);
+	x = x - 5;
+    };
+    enemies();
     // override draw function, by default it will be called 60 times per second
     processing.draw = function() {
 	processing.image(img, 0, 0);
@@ -44,7 +60,7 @@ var sketchProc = function(processing) {
 	if(barfFired){
 	    processing.fill(166, 255, 0);
 	    processing.rect(barfX, 150, 20, 20);
-	    barfX = barfX + 10;
+	    barfX = barfX + 5;
 	}
 	
     };
