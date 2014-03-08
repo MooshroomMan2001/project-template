@@ -17,6 +17,7 @@ document.body.appendChild(music);
     var textX = 300;
     var barfX = 1;
     var barfFired = false;
+    var barfY = 150;
 
 
     // this code is executed once when the program is started
@@ -30,7 +31,7 @@ document.body.appendChild(music);
 
 	// mouse clicked function
     };
-    processing.mouseClicked = function (){
+    processing.mouseClicked = function(){
 	barfFired = true;
 	barfX = 1;
 	audio.play();
@@ -48,19 +49,15 @@ document.body.appendChild(music);
     processing.draw = function() {
 	processing.image(img, 0, 0);
 	processing.image(dog, mouseX, mouseY);
-	if(mouseX >= 625 && mouseX <= 0){
-	    processing.textSize(90, 80);
-	    processing.fill(255, 0, 0);
-	    processing.text("You died!", textX, textY);
-	}
-	if(mouseY >= 450){
-	    processing.textSize(90, 30);
-	    processing.text("You died!", textX, textY);
-        }
 	if(barfFired){
 	    processing.fill(166, 255, 0);
-	    processing.rect(barfX, 150, 20, 20);
+	    processing.rect(barfX, barfY, 20, 20);
 	    barfX = barfX + 5;
+	    if (keyPressed && keyCode === UP){
+		barfY -= 5;
+	    } else if (keyPressed && keyCode ===DOWN){
+		barfY += 5;
+	    }
 	}
 	
     };
