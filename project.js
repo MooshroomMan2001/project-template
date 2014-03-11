@@ -19,9 +19,14 @@ document.body.appendChild(music);
     var barfFired = false;
     var barfY = 150;
     var x = 625;
+    var y = 100; 
 
     var enemyOne = {
 	x: 625
+    };
+    var enemyTwo = {
+	x: 625,
+	y: 100
     };
     
 
@@ -57,6 +62,7 @@ document.body.appendChild(music);
     // override draw function, by default it will be called 60 times per second
     processing.draw = function() {
 	moveEnemy(enemyOne);
+	moveEnemy(enemyTwo);
 	processing.image(img, 0, 0);
 	processing.image(dog, processing.mouseX, processing.mouseY);
 	if(barfFired){
@@ -70,8 +76,7 @@ document.body.appendChild(music);
 	    }
 	}
 	drawEnemy(enemyOne);
-	// enemy :)
-	
+	drawEnemy(enemyTwo);
     };
 
 }
