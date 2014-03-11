@@ -18,6 +18,12 @@ document.body.appendChild(music);
     var barfX = 1;
     var barfFired = false;
     var barfY = 150;
+    var x = 625;
+
+    var enemyOne = {
+	x: 625
+    };
+    
 
 
     // this code is executed once when the program is started
@@ -38,27 +44,33 @@ document.body.appendChild(music);
 	
 
     };
-    // enemy function; will call :)
-    var enemies = function (){
-	var x = 625;
-	rect(x, 500, 30, 30);
-	x = x - 5;
-    };
-    enemies();
+
+    var moveEnemy = function(enemy) {
+	enemy.x = enemy.x - 1;
+    }
+
+    var drawEnemy = function(enemy) {
+	processing.fill(255, 0, 0);
+	processing.rect(enemy.x, 200, 30, 30);
+    }
+
     // override draw function, by default it will be called 60 times per second
     processing.draw = function() {
+	moveEnemy(enemyOne);
 	processing.image(img, 0, 0);
-	processing.image(dog, mouseX, mouseY);
+	processing.image(dog, processing.mouseX, processing.mouseY);
 	if(barfFired){
 	    processing.fill(166, 255, 0);
 	    processing.rect(barfX, barfY, 20, 20);
 	    barfX = barfX + 5;
-	    if (keyPressed && keyCode === UP){
+	    if (processing.keyPressed && processing.keyCode === processing.UP){
 		barfY -= 5;
-	    } else if (keyPressed && keyCode ===DOWN){
+	    } else if (processing.keyPressed && processing.keyCode === processing.DOWN){
 		barfY += 5;
 	    }
 	}
+	drawEnemy(enemyOne);
+	// enemy :)
 	
     };
 
