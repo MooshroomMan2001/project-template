@@ -38,9 +38,7 @@ document.body.appendChild(music);
 
 	// set up the size of the canvas (you probably don't want to change this!)
 	processing.size(625, 450);
-
-	// some drawing commands; feel free to change these
-	processing.fill(255, 255, 0);
+	//processing.frameRate(5);
 
 	// mouse clicked function
     };
@@ -72,9 +70,9 @@ document.body.appendChild(music);
 	    processing.fill(166, 255, 0);
 	    processing.rect(barfX, barfY, 20, 20);
 	    barfX = barfX + 5;
-	    if (processing.keyPressed && processing.keyCode === processing.UP){
+	    if(processing.keyPressed && processing.keyCode === processing.UP){
 		barfY -= 5;
-	    } else if (processing.keyPressed && processing.keyCode === processing.DOWN){
+	    } else if(processing.keyPressed && processing.keyCode === processing.DOWN){
 		barfY += 5;
 	    }
 	}
@@ -90,8 +88,22 @@ document.body.appendChild(music);
 	}
 	if(enemyThree.x < 1){
 	    enemyThree.x = 800;
+	 
 	}
-	
+	if(barfX > enemyOne.x){
+	    enemyOne.x = 625;
+	}
+	if(barfX > enemyTwo.x){
+	    enemyTwo.x = 700;
+	}
+	if(barfX > enemyThree.x){
+	    enemyThree.x = 800;
+	}
+
+	if (barfX > 800) {
+	    barfFired = false;
+	    barfX = 0;
+	}
     };
 
 }
