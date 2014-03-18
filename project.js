@@ -38,7 +38,6 @@ document.body.appendChild(music);
 
 	// set up the size of the canvas (you probably don't want to change this!)
 	processing.size(625, 450);
-	//processing.frameRate(5);
 
 	// mouse clicked function
     };
